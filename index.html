@@ -26,17 +26,31 @@
 	  ga('send', 'pageview');
 
 	</script>
+		<script>
+		/**
+		* Function that tracks a click on an outbound link in Analytics
+		* This function takes a valid URL string as an argument, and uses that URL string
+		* as the event label. Setting the transport method to 'beacon' lets the hit be sent
+		* using 'navigator.sendBeacon' in browser that support it.
+		*/
+		var trackOutboundLink = function(url) {
+		   ga('send', 'event', 'outbound', 'click', url, {
+		     'transport': 'beacon',
+		     'hitCallback': function(){document.location = url;}
+		   });
+		}
+		</script>
 </head>
 <body>
 <center>
 	<h1>Crushing T1D</h1>
 <p>... one day at a time ...</p>
 <p>
-	<a href="http://snapchat.crushingt1d.com"><img width=65 height=65 hspace="5" src="nQxBcw4u.jpg"></a>
-	<a href="http://videos.crushingt1d.com"><img width=65 height=65 hspace="5" src="https://image.freepik.com/free-icon/youtube-symbol_318-64721.png"></a>
-	<a href="http://live.crushingt1d.com"><img width=65 height=65 hspace="5" src="https://cdn1.iconfinder.com/data/icons/multimedia-marketing/512/22-512.png"></a>
-	<a href="http://twitter.crushingt1d.com"><img width=65 height=65 hspace="5" src="http://www.starship-group.com/website/wp-content/themes/starship/images/icon_twitter_b.png"></a>
-	<a href="http://code.crushingt1d.com"><img width=65 height=65 hspace="5" src="https://assets-cdn.github.com/images/modules/logos_page/Octocat.png"></a>
+	<a href="http://snapchat.crushingt1d.com" target="_blank" onclick="trackOutboundLink('Snapchat'); return false;"><img width=65 height=65 hspace="5" src="nQxBcw4u.jpg"></a>
+	<a href="http://videos.crushingt1d.com" target="_blank" onclick="trackOutboundLink('Youtube'); return false;"><img width=65 height=65 hspace="5" src="https://image.freepik.com/free-icon/youtube-symbol_318-64721.png"></a>
+	<a href="http://live.crushingt1d.com" target="_blank" onclick="trackOutboundLink('Nightscout'); return false;"><img width=65 height=65 hspace="5" src="https://cdn1.iconfinder.com/data/icons/multimedia-marketing/512/22-512.png"></a>
+	<a href="http://twitter.crushingt1d.com" target="_blank" onclick="trackOutboundLink('Twitter'); return false;"><img width=65 height=65 hspace="5" src="http://www.starship-group.com/website/wp-content/themes/starship/images/icon_twitter_b.png"></a>
+	<a href="http://code.crushingt1d.com" target="_blank" onclick="trackOutboundLink('Github'); return false;"><img width=65 height=65 hspace="5" src="https://assets-cdn.github.com/images/modules/logos_page/Octocat.png"></a>
 </p>
 <p id="rcorners">I am currently using a combination of<br>Medtronic Minimed 722, Dexcom G5, <a href="http://openaps.org">OpenAPS</a><br><br>I tell my story daily via video on Snapchat (username is CrushingT1D). I place archives of those snaps on Youtube. You can connect with me on Twitter. For full transparency I publish a link to all of my live numbers right here. The happy Octopus is Github. That's where I keep all the code I use for my diabetes related projects. It's a great place to check if you want to see what I am working on!</p>
 </center>
